@@ -51,13 +51,12 @@ void luni_send(void *handle, wchar_t * widebuf, int len, int interactive)
 	for (p = linebuffer, i = 0; i < len; i++) {
 	    unsigned long ch = widebuf[i];
 
-	    if ((ch & 0xF800) == 0xD800) {
+	    if (IS_SURROGATE(ch)) {
 #ifdef PLATFORM_IS_UTF16
 		if (i+1 < len) {
 		    unsigned long ch2 = widebuf[i+1];
-		    if ((ch & 0xFC00) == 0xD800 &&
-			(ch2 & 0xFC00) == 0xDC00) {
-			ch = 0x10000 + ((ch & 0x3FF) << 10) + (ch2 & 0x3FF);
+		    if (IS_SURROGATE_PAIR(ch, ch2)) {
+			ch = FROM_SURROGATES(ch, ch2);
 			i++;
 		    }
 		} else
@@ -71,17 +70,17 @@ void luni_send(void *handle, wchar_t * widebuf, int len, int interactive)
 	    if (ch < 0x80) {
 		*p++ = (char) (ch);
 	    } else if (ch < 0x800) {
-		*p++ = (0xC0 | (ch >> 6));
-		*p++ = (0x80 | (ch & 0x3F));
+		*p++ = (char) (0xC0 | (ch >> 6));
+		*p++ = (char) (0x80 | (ch & 0x3F));
 	    } else if (ch < 0x10000) {
-		*p++ = (0xE0 | (ch >> 12));
-		*p++ = (0x80 | ((ch >> 6) & 0x3F));
-		*p++ = (0x80 | (ch & 0x3F));
+		*p++ = (char) (0xE0 | (ch >> 12));
+		*p++ = (char) (0x80 | ((ch >> 6) & 0x3F));
+		*p++ = (char) (0x80 | (ch & 0x3F));
 	    } else {
-		*p++ = (0xF0 | (ch >> 18));
-		*p++ = (0x80 | ((ch >> 12) & 0x3F));
-		*p++ = (0x80 | ((ch >> 6) & 0x3F));
-		*p++ = (0x80 | (ch & 0x3F));
+		*p++ = (char) (0xF0 | (ch >> 18));
+		*p++ = (char) (0x80 | ((ch >> 12) & 0x3F));
+		*p++ = (char) (0x80 | ((ch >> 6) & 0x3F));
+		*p++ = (char) (0x80 | (ch & 0x3F));
 	    }
 	}
     } else {

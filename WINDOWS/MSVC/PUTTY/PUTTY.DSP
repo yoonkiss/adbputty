@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "putty - Win32 Debug"
@@ -80,7 +80,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
@@ -98,7 +98,15 @@ SOURCE=..\..\..\be_all_s.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\callback.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\cmdline.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\conf.c
 # End Source File
 # Begin Source File
 
@@ -111,6 +119,10 @@ SOURCE=..\..\..\cproxy.c
 # Begin Source File
 
 SOURCE=..\..\..\dialog.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\errsock.c
 # End Source File
 # Begin Source File
 
@@ -131,6 +143,14 @@ SOURCE=..\..\..\minibidi.c
 # Begin Source File
 
 SOURCE=..\..\..\misc.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\miscucs.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\noshare.c
 # End Source File
 # Begin Source File
 
@@ -247,6 +267,10 @@ SOURCE=..\..\..\sshsha.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\sshshare.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\sshzlib.c
 # End Source File
 # Begin Source File
@@ -315,6 +339,14 @@ SOURCE=..\..\..\windows\winhelp.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\windows\winhsock.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winjump.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\winmisc.c
 # End Source File
 # Begin Source File
@@ -324,6 +356,14 @@ SOURCE=..\..\..\windows\winnet.c
 # Begin Source File
 
 SOURCE=..\..\..\windows\winnoise.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winnpc.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winnps.c
 # End Source File
 # Begin Source File
 
@@ -339,7 +379,15 @@ SOURCE=..\..\..\windows\winproxy.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\windows\winsecur.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\winser.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winshare.c
 # End Source File
 # Begin Source File
 
@@ -423,6 +471,10 @@ SOURCE=..\..\..\ssh.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\sshbn.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\sshgss.h
 # End Source File
 # Begin Source File
@@ -447,6 +499,10 @@ SOURCE=..\..\..\unix\unix.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\version.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\rcstuff.h
 # End Source File
 # Begin Source File
@@ -456,6 +512,10 @@ SOURCE=..\..\..\windows\win_res.h
 # Begin Source File
 
 SOURCE=..\..\..\windows\winhelp.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winsecur.h
 # End Source File
 # Begin Source File
 

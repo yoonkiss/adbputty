@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "puttygen - Win32 Debug"
@@ -80,7 +80,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
@@ -92,6 +92,10 @@ LINK32=link.exe
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# Begin Source File
+
+SOURCE=..\..\..\conf.c
+# End Source File
 # Begin Source File
 
 SOURCE=..\..\..\import.c
@@ -186,6 +190,10 @@ SOURCE=..\..\..\windows\winnoise.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\windows\winnojmp.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\winpgen.c
 # End Source File
 # Begin Source File
@@ -246,6 +254,10 @@ SOURCE=..\..\..\ssh.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\sshbn.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\storage.h
 # End Source File
 # Begin Source File
@@ -255,6 +267,10 @@ SOURCE=..\..\..\tree234.h
 # Begin Source File
 
 SOURCE=..\..\..\unix\unix.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\version.h
 # End Source File
 # Begin Source File
 

@@ -1,6 +1,10 @@
-WINDOWS/MSVC/ipch
-WINDOWS/MSVC/*/Debug
-WINDOWS/MSVC/*/Release
+﻿windows/MSVC/ipch
+windows/MSVC/*/Debug
+windows/MSVC/*/Release
+windows/VS2012/Debug
+windows/VS2012/Release
+windows/VS2012/*/Debug
+windows/VS2012/*/Release
 *.user
 *.sdf
 *.suo

@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /machine:I386
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "puttytel - Win32 Debug"
@@ -80,7 +80,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 advapi32.lib comctl32.lib comdlg32.lib gdi32.lib imm32.lib ole32.lib shell32.lib user32.lib winmm.lib winspool.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
@@ -98,7 +98,15 @@ SOURCE=..\..\..\be_nos_s.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\callback.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\cmdline.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\conf.c
 # End Source File
 # Begin Source File
 
@@ -107,6 +115,10 @@ SOURCE=..\..\..\config.c
 # Begin Source File
 
 SOURCE=..\..\..\dialog.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\errsock.c
 # End Source File
 # Begin Source File
 
@@ -127,6 +139,10 @@ SOURCE=..\..\..\minibidi.c
 # Begin Source File
 
 SOURCE=..\..\..\misc.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\miscucs.c
 # End Source File
 # Begin Source File
 
@@ -215,6 +231,14 @@ SOURCE=..\..\..\windows\winhandl.c
 # Begin Source File
 
 SOURCE=..\..\..\windows\winhelp.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winhsock.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winjump.c
 # End Source File
 # Begin Source File
 
@@ -319,6 +343,10 @@ SOURCE=..\..\..\tree234.h
 # Begin Source File
 
 SOURCE=..\..\..\unix\unix.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\version.h
 # End Source File
 # Begin Source File
 
